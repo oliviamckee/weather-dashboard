@@ -5,10 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main>
+        <!-- city name input form -->
+        <div>
+            <h2>Search for a City</h2>
+            <form>
+                <input name="city" type=text autofocus="true" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- recent searches -->
+        <div>
+
+        </div>
+
+        <!-- main city info -->
+        <div>
+            <p id="city-name"></p>
+            <p id="temp">Temp: </p>
+            <p id="wind">Wind: </p>
+            <p id="humidity">Humidity: </p>
+            <p id="uv-index">UV Index: </p>
+        </div>
+
+        <!-- 5 day forecast -->
+        <div>
+
+        </div>
+
+    </main>
+
 
     <script src="./assets/script.js"></script>
 </body>
