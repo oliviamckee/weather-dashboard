@@ -1,0 +1,30 @@
+header {
+    text-align: center;
+    background-color: aqua;
+}
+
+.row {
+    display: flex;
+}
+
+#column-1 {
+    width: 20%
+}
+
+#column-2 {
+    width: 80%
+}
+
+.card {
+    background-color: navy;
+    color: white;
+    padding: 10px;
+    margin: 10px
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
