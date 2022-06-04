@@ -1,6 +1,10 @@
-//minneapolis
-var lat = 44.97
-var lon = -93.26
+var lat 
+var lon 
+var cityName
+
+var cityFormEl = document.getElementById("city-form");
+var cityInputEl = document.getElementById("city-input");
+
 //current date
 var dateEl = document.getElementById("date");
 var iconEl = document.getElementById("icon");
@@ -62,6 +66,34 @@ var getDate = function() {
     date5El.textContent = date5;
 }
 
+//get input from city form 
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+    cityName = cityInputEl.value.trim();
+    if (cityName) {
+        getCity(cityName);
+        cityInputEl.value = "";
+    }
+}
+
+//get lat and lon coordinates for weather data api request 
+var getCity = function() {
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=f1c27cb81faeee38552c89fbd39e289e";
+    
+    fetch(apiUrl).then(function(response) {
+        if(response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                lat = data.coord.lat;
+                lon = data.coord.lon;
+                console.log(lat);
+                console.log(lon);
+                getWeatherData();
+            })
+        }
+    })
+}
+
 // api fetch request to display weather data
 var getWeatherData = function() {
     var apiUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=f1c27cb81faeee38552c89fbd39e289e&units=imperial';
@@ -69,7 +101,7 @@ var getWeatherData = function() {
         .then(function(response) {
             if(response.ok) {
                 response.json().then(function(data) {
-                    console.log(data);
+                    // console.log(data);
                     // display current weather data 
                     iconEl.textContent = data.current.weather[0].id;
                     tempEl.textContent = data.current.temp;
@@ -109,6 +141,10 @@ var getWeatherData = function() {
     
 }
 
-getDate();
-getWeatherData();
 
+getDate();
+// getWeatherData();
+
+
+// event listener 
+cityFormEl.addEventListener("submit", formSubmitHandler);
