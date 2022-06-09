@@ -32,3 +32,9 @@ img {
     height: 40px;
     width: 40px;
 }
+
+#recent-searches {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}

@@ -91,10 +91,13 @@ var recentSearchHandler = function() {
 }
 
 var recentSearchButton = function() {
-    console.log(searchButtonEl.textContent);
-    cityName = this.textContent;
-    formSubmitHandler();
+    var recentSearchButtonEl = document.querySelector(".recent-search-button");
+    cityName = recentSearchButtonEl.textContent;
+    console.log(cityName);
+    getCity(cityName);
+    cityEl.textContent = cityName
 }
+
 
 //get lat and lon coordinates for weather data api request 
 var getCity = function() {
